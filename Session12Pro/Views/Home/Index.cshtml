@@ -1,0 +1,39 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "Home Page";
+
+    var parms = new Dictionary<string, string>
+{
+        {"id","2" },{"token","flsdgj;lsajg;"}
+    };
+}
+<div>
+    <a asp-action="Profile" asp-controller="Home" asp-all-route-data="parms">Profile Page</a>
+    <a asp-action="Login" asp-controller="Home" asp-route-username="a@a" asp-route-password="123456">Go To Login</a>
+    <a asp-host="google.com">Google.com</a>
+</div>
+<div>
+    <cache enabled="true" vary-by-header="User-Agent">
+        Time is @DateTime.Now
+    </cache>
+</div>
+<div>
+    <form asp-action="login" asp-controller="home" method="post">
+        <label asp-for="Username"></label> <input type="text" asp-for="Username" placeholder="username" />
+        <label asp-for="Password"></label><input type="text" asp-for="Password" placeholder="password" />
+        <div>
+            <label asp-for="Description"></label><textarea asp-for="Description"></textarea>
+        </div>
+        <input type="submit" value="login" />
+
+    </form>
+
+</div>
+<div active-primary="true">
+    <p>Hello</p>  @*<partial name="Shared/_ProductPartial.cshtml"  for="Categories">*@
+
+</div>
+<card name="amir" description="He is Pro" user-role="admin" />
+
+
+<card2 name="amir" description="He is Pro" user-role="admin" />
